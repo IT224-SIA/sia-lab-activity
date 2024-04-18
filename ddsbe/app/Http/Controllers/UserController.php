@@ -1,9 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Traits\ApiResponser;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\User;
+use DB;
 
 class UserController extends Controller
 {
@@ -26,12 +28,15 @@ class UserController extends Controller
         $users = User::all();
         return response()->json($users, 200);
 
+        //return $this->successResponse($users);
+
     }
     public function add(Request $request)
     {
         $rules = [
             'username' => 'required|max:45',
             'password' => 'required|max:45',
+            'gender' => 'required|in:Male,Female',
         ];
 
         $this->validate($request, $rules);
@@ -39,6 +44,8 @@ class UserController extends Controller
         $user = User::create($request->all());
 
         return response()->json($user, 200);
+
+        //return $this->successResponse($user, Response:HTTP_CREATED);
     }
     /**
      * Obtains and show one user

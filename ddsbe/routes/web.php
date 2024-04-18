@@ -26,4 +26,6 @@ $router->get('/users/{id}', ['uses' => 'UserController@show']);
 
 $router->put('/users/{id}', ['uses' => 'UserController@update']);
 
+$router->patch('/users/{id}', ['uses' => 'UserController@update']);
+
 $router->delete('/users/{id}', ['uses' => 'UserController@delete']);
