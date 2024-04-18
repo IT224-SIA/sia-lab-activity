@@ -56,8 +56,7 @@ class UserController extends Controller
         return $this->successResponse($user);
         }
         {
-        return $this->errorResponse('User ID Does Not Exists', 
-       Response::HTTP_NOT_FOUND);
+        return $this->errorResponse('User ID Does Not Exists', Response::HTTP_NOT_FOUND);
         }
         */
     }
@@ -115,6 +114,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
         return response()->json($user, 200);
+
         // old code 
         /*
         $user = User::where('userid', $id)->first();
