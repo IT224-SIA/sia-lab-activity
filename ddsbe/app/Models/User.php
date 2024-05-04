@@ -13,6 +13,7 @@ class User extends Model
         'username',
         'password',
         'gender',
+        'jobid',
         'created_at',
         'updated_at'
     ];
